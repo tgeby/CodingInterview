@@ -1,5 +1,6 @@
 // 2is_permutation.cpp
 
+#include <cassert>
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -23,7 +24,7 @@ bool are_permutations(std::string& word_one, std::string& word_two) {
         }
     }
     for (const auto& pair: word_one_map) {
-        if (pair.second > 1) {
+        if (pair.second > 0) {
             return false;
         }
     }
@@ -35,20 +36,12 @@ int main() {
     std::string word_two = "silent";
     std::string word_three = "lent is";
     std::string word_four = "abe";
-    if (are_permutations(word_one, word_two)) {
-        std::cout << '"' << word_one << "\" and \"" << word_two << "\" are permutations of each other." << std::endl;
-    } else {
-        std::cout << '"' << word_one << "\" and \"" << word_two << "\" are NOT permutations of each other." << std::endl;
-    }
-    if (are_permutations(word_one, word_three)) {
-        std::cout << '"' << word_one << "\" and \"" << word_three << "\" are permutations of each other." << std::endl;
-    } else {
-        std::cout << '"' << word_one << "\" and \"" << word_three << "\" are NOT permutations of each other." << std::endl;
-    }
-    if (are_permutations(word_one, word_four)) {
-        std::cout << '"' << word_one << "\" and \"" << word_four << "\" are permutations of each other." << std::endl;
-    } else {
-        std::cout << '"' << word_one << "\" and \"" << word_four << "\" are NOT permutations of each other." << std::endl;
-    }
+    std::string word_five = "listening";
+    assert(are_permutations(word_one, word_two) == true);
+    assert(are_permutations(word_one, word_three) == false);
+    assert(are_permutations(word_one, word_three) == false);
+    assert(are_permutations(word_one, word_four) == false);
+    assert(are_permutations(word_five, word_one) == false);
+    std::cout << "All tests were passed." << std::endl;
     return 0;
 }

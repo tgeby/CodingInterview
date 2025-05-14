@@ -1,6 +1,7 @@
 // 1unique.cpp
 
-#include <iostream>  // for std::cout and std::endl
+#include <cassert>
+#include <iostream>
 #include <string>
 #include <unordered_set>
 
@@ -35,15 +36,10 @@ bool is_unique(const std::string& word, bool use_data_structures) {
 int main() {
     std::string word_one = "apple";
     std::string word_two = "pear";
-    if (is_unique(word_one, false)) {
-        std::cout << word_one << " has all unique letters." << std::endl;
-    } else {
-        std::cout << word_one << " has duplicate letters." << std::endl;
-    }
-    if (is_unique(word_two, false)) {
-        std::cout << word_two << " has all unique letters." << std::endl;
-    } else {
-        std::cout << word_two << " has duplicate letters." << std::endl;
-    }
+    assert(is_unique(word_one, false) == false);
+    assert(is_unique(word_one, true) == false);
+    assert(is_unique(word_two, false) == true);
+    assert(is_unique(word_two, true) == true);
+    std::cout << "All tests were passed." << std::endl;
     return 0;  
 }
