@@ -31,6 +31,6 @@ int main() {
     std::string input2 = "Tact Voa";
     assert(is_palindrome_permutation(input) == true);
     assert(is_palindrome_permutation(input2) == false);
-    std::cout << "All tests were passed.";
+    std::cout << "All tests were passed." << std::endl;
     return 0;
 }

@@ -25,6 +25,6 @@ int main() {
     urlify(string_one, 13);
     std::cout << string_one << std::endl;
     assert(string_one == "Mr%20John%20Smith");
-    std::cout << "All tests were passed.";
+    std::cout << "All tests were passed." << std::endl;
     return 0;
 }
