@@ -23,16 +23,15 @@ bool check_one_remove(std::string longer, std::string shorter) {
 
 bool check_replace_char(std::string str1, std::string str2) {
     assert(str1.length() == str2.length());
-    int miss_matches = 0;
+    int mismatches = 0;
     for (int i=0; i<str1.length(); i++) {
         if (str1[i] != str2[i]) {
-            miss_matches++;
+            if (++mismatches > 1) {
+                return false;
+            }
         }
     }
-    if (miss_matches < 2) {
-        return true;
-    }
-    return false;
+    return mismatches <= 1;
 }
 
 bool is_one_away(std::string str1, std::string str2) {
@@ -64,6 +63,10 @@ int main() {
     assert(is_one_away(pales, pale) == true);
     assert(is_one_away(pale, bale) == true);
     assert(is_one_away(pale, bake) == false);
+    assert(is_one_away("a", "") == true);
+    assert(is_one_away("", "") == true);
+    assert(is_one_away("a", "b") == true);
+    assert(is_one_away("ab", "cd") == false);
     std::cout << "All tests were passed." << std::endl;
     return 0;
 }
