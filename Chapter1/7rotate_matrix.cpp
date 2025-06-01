@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <string>
+#include "matrix_utils.h"
 
 bool is_square(std::vector<std::vector<int>>& matrix) {
     size_t n = matrix.size();
@@ -162,12 +163,12 @@ int main() {
     inplace_rotate_matrix(matrix_4);
     inplace_rotate_matrix(matrix_5);
     inplace_rotate_matrix(matrix_6);
-    assert(compare_matrices(matrix_1, matrix_1_result) == true);
-    assert(compare_matrices(matrix_2, matrix_2_result) == true);
-    assert(compare_matrices(matrix_3, matrix_3_result) == true);
-    assert(compare_matrices(matrix_4, matrix_4_result) == true);
-    assert(compare_matrices(matrix_5, matrix_5_result) == true);
-    assert(compare_matrices(matrix_6, matrix_6_result) == true);
+    assert(matrix_1 == matrix_1_result);
+    assert(matrix_2 == matrix_2_result);
+    assert(matrix_3 == matrix_3_result);
+    assert(matrix_4 == matrix_4_result);
+    assert(matrix_5 == matrix_5_result);
+    assert(matrix_6 == matrix_6_result);
     std::cout << "All tests were passed." << std::endl;
     return 0;
 }
